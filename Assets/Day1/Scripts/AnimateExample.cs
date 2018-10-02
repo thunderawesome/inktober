@@ -82,38 +82,43 @@ namespace Battlerock
                 }
 
                 int thisFrame = 0;
-                for (int i = 0; i < transform.childCount; i++)
-                {
-                    if (transform.GetChild(i).name.ToLower().StartsWith("frame"))
-                    {
-                        transform.GetChild(i).gameObject.SetActive(false);
-                        if (currentFrame == thisFrame)
-                        {
-                            transform.GetChild(i).gameObject.SetActive(true);
-                        }
 
-                        thisFrame++;
+                // Loops through array of GameObjects
+                // that are specified as "frames"
+                for (int i = 0; i < frames.Length; i++)
+                {
+                    frames[i].SetActive(false);
+                    if (currentFrame == thisFrame)
+                    {
+                        frames[i].SetActive(true);
                     }
+
+                    thisFrame++;
                 }
             }
         }
 
         #endregion
 
-        public void Play()
+        #region Private Methods
+
+        private void Play()
         {
             isPlaying = true;
         }
 
-        public void Pause()
+        private void Pause()
         {
             isPlaying = false;
         }
 
-        public void Reset()
+        private void Reset()
         {
             isPlaying = false;
             currentFrameTime = 0;
         }
+
+        #endregion
+
     }
 }

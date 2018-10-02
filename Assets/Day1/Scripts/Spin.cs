@@ -1,17 +1,17 @@
 ﻿using UnityEngine;
 
 namespace Battlerock
-{
-    public enum Axis
-    {
-        X,
-        Y,
-        Z
-    }
-
+{    
     public class Spin : MonoBehaviour
     {
         #region Public Variables
+
+        public enum Axis
+        {
+            X,
+            Y,
+            Z
+        }
 
         /// <summary>
         /// Speed at which the object this script
