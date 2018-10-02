@@ -10,3 +10,5 @@ Spin script is useful for making objects spin over time and having control both 
 SetRandomColor script is useful for debugging things mostly. I use it to distinguish multiple objects at the start of the app in editor. There are probably gizmos or other ways to do this, but I find this was a super simple way to prototype ideas without getting confused by similar objects with the same color.
 
 Day 2: Converted the GameObject animation system and Spin script to utilize Coroutines. Also, cleaned up a bit and removed bad code.
+
+![Alt Text](https://media.giphy.com/media/3Xzdy2QzfsVZ44WkwW/giphy.gif)
