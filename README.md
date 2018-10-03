@@ -12,3 +12,7 @@ SetRandomColor script is useful for debugging things mostly. I use it to disting
 Day 2: Converted the GameObject animation system and Spin script to utilize Coroutines. Also, cleaned up a bit and removed bad code.
 
 ![Alt Text](https://media.giphy.com/media/3Xzdy2QzfsVZ44WkwW/giphy.gif)
+
+Day 3: Made a voxel character and used all the previous day examples to showcase the animation framework and other scripts.
+
+![Alt Text](https://media.giphy.com/media/fHfMf1fktaPnMJW4Ic/giphy.gif)
