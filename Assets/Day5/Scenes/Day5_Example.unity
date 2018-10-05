@@ -218,8 +218,55 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1086627413768186, guid: 7a7fbeb2de4bc484483aab38a70a1227, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000,
+        type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a7fbeb2de4bc484483aab38a70a1227, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &533976101
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4677408075850852, guid: 3251f0f7dc7258043a782943ab441fb2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677408075850852, guid: 3251f0f7dc7258043a782943ab441fb2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677408075850852, guid: 3251f0f7dc7258043a782943ab441fb2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677408075850852, guid: 3251f0f7dc7258043a782943ab441fb2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677408075850852, guid: 3251f0f7dc7258043a782943ab441fb2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677408075850852, guid: 3251f0f7dc7258043a782943ab441fb2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677408075850852, guid: 3251f0f7dc7258043a782943ab441fb2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677408075850852, guid: 3251f0f7dc7258043a782943ab441fb2, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3251f0f7dc7258043a782943ab441fb2, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &534669902
 GameObject:
