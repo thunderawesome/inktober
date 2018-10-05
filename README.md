@@ -20,3 +20,7 @@ Day 3: Made a voxel character and used all the previous day examples to showcase
 Day 4: Made gizmo spheres for easy locating and clicking of objects in the scene.
 
 ![Alt Text](https://media.giphy.com/media/8mboAtWRjMYXW2S2iC/giphy.gif)
+
+Day 5: Pause/Resume using coroutines to affect TimeScale. Needs refinement, but the idea is there!
+
+![Alt Text](https://media.giphy.com/media/dZ5jQyUCmyoEcQ0XU6/giphy.gif)
