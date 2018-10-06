@@ -43,6 +43,8 @@ namespace Battlerock
 
         private void Awake()
         {
+            
+
             if (playOnAwake == true)
             {
                 Play();
@@ -53,6 +55,22 @@ namespace Battlerock
 
         private void OnEnable()
         {
+            // No frames already set up
+            if (frames == null || frames.Length == 0)
+            {
+                // Only find the transform children not their descendants. Also, excludes the current transform.
+                Transform[] tempFrames = transform.GetComponentsOnlyInChildren<Transform>();
+
+                // Set the array to the same size as the result above
+                frames = new GameObject[tempFrames.Length];
+
+                // Loop through and add the frames to the array
+                for (int i = 0; i < tempFrames.Length; i++)
+                {
+                    frames[i] = tempFrames[i].gameObject;
+                }                
+            }
+
             // Only want to assign it here if playOnAwake is not true and no coroutine has been assigned yet.
             if (m_coroutine == null && playOnAwake == false)
             {
@@ -113,7 +131,7 @@ namespace Battlerock
                         dir = 1;
                         //yield break;
                     }
-                    else if(pingPong == false && loop == false)
+                    else if (pingPong == false && loop == false)
                     {
                         ClampToLastFrame();
                         yield break;
@@ -127,7 +145,7 @@ namespace Battlerock
                         Reset();
                         yield break;
                     }
-                }               
+                }
 
                 int thisFrame = 0;
                 for (int i = 0; i < frames.Length; i++)
