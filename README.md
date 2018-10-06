@@ -24,3 +24,7 @@ Day 4: Made gizmo spheres for easy locating and clicking of objects in the scene
 Day 5: Pause/Resume using coroutines to affect TimeScale. Needs refinement, but the idea is there!
 
 ![Alt Text](https://media.giphy.com/media/dZ5jQyUCmyoEcQ0XU6/giphy.gif)
+
+Day 6: Utility scripts to help find child objects. Much like GetComponentsInChildren; however, these examples are useful for excluding the parent and/or excluding/including descendants of children.
+
+![Alt Text](https://media.giphy.com/media/4JXL0kKgJYMdBDJxNF/giphy.gif)
