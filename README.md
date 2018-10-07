@@ -28,3 +28,7 @@ Day 5: Pause/Resume using coroutines to affect TimeScale. Needs refinement, but 
 Day 6: Utility scripts to help find child objects. Much like GetComponentsInChildren; however, these examples are useful for excluding the parent and/or excluding/including descendants of children.
 
 ![Alt Text](https://media.giphy.com/media/4JXL0kKgJYMdBDJxNF/giphy.gif)
+
+Day 7: Wave system for survival-type games. Manages waves, sub-waves, and enabling/disabling of enemies in the sub-waves.
+
+![Alt Text](https://media.giphy.com/media/dYCgAr6ikiyayX4C6J/giphy.gif)
