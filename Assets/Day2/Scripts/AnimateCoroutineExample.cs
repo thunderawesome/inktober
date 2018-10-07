@@ -43,18 +43,6 @@ namespace Battlerock
 
         private void Awake()
         {
-            
-
-            if (playOnAwake == true)
-            {
-                Play();
-                m_coroutine = Animate();
-                StartCoroutine(m_coroutine);
-            }
-        }
-
-        private void OnEnable()
-        {
             // No frames already set up
             if (frames == null || frames.Length == 0)
             {
@@ -68,23 +56,38 @@ namespace Battlerock
                 for (int i = 0; i < tempFrames.Length; i++)
                 {
                     frames[i] = tempFrames[i].gameObject;
-                }                
+                }
             }
 
+            if (playOnAwake == true)
+            {
+                Play();
+                m_coroutine = Animate();
+                StartCoroutine(m_coroutine);
+            }
+        }
+
+        private void OnEnable()
+        {
             // Only want to assign it here if playOnAwake is not true and no coroutine has been assigned yet.
-            if (m_coroutine == null && playOnAwake == false)
+            if (m_coroutine == null)
             {
                 m_coroutine = Animate();
             }
+
+            Play();
+            StartCoroutine(m_coroutine);
         }
 
         private void OnDestroy()
         {
+            Reset();
             StopCoroutine(Animate());
         }
 
         private void OnDisable()
         {
+            Reset();
             StopCoroutine(Animate());
         }
 
