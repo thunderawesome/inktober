@@ -32,3 +32,8 @@ Day 6: Utility scripts to help find child objects. Much like GetComponentsInChil
 Day 7: Wave system for survival-type games. Manages waves, sub-waves, and enabling/disabling of enemies in the sub-waves.
 
 ![Alt Text](https://media.giphy.com/media/dYCgAr6ikiyayX4C6J/giphy.gif)
+
+Day 8: BulletHell basic mechanics. Building off previous examples and scripts. Lots of new scripts added and refactoring done to the previous examples.
+
+![Alt Text](https://media.giphy.com/media/c6VxjHYOjQaCgleWrV/giphy.gif)
+
