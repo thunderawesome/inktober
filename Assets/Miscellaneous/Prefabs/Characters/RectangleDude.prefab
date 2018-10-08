@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 33622791057410368}
   - component: {fileID: 23844536276700242}
   - component: {fileID: 114731515566251962}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RectangleDude_RStep
-  m_TagString: Untagged
+  m_TagString: Frame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,13 +38,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4588015189753344}
   - component: {fileID: 114771654922952104}
-  m_Layer: 0
+  - component: {fileID: 114895084893775456}
+  - component: {fileID: 65530845944561812}
+  m_Layer: 9
   m_Name: RectangleDude
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1284398910149334
 GameObject:
   m_ObjectHideFlags: 1
@@ -55,7 +57,7 @@ GameObject:
   - component: {fileID: 4050404523640246}
   - component: {fileID: 33340889990905266}
   - component: {fileID: 23622456858063378}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AngryEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +74,7 @@ GameObject:
   - component: {fileID: 4226173293696004}
   - component: {fileID: 33520627708339934}
   - component: {fileID: 23052826423443582}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AngryEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,9 +92,9 @@ GameObject:
   - component: {fileID: 33865957124914566}
   - component: {fileID: 23755312344748762}
   - component: {fileID: 114988867605070390}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RectangleDude_Idle
-  m_TagString: Untagged
+  m_TagString: Frame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,9 +110,9 @@ GameObject:
   - component: {fileID: 33694664710337956}
   - component: {fileID: 23991911956531276}
   - component: {fileID: 114248574761946536}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RectangleDude_LStep
-  m_TagString: Untagged
+  m_TagString: Frame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +127,7 @@ GameObject:
   - component: {fileID: 4854383845018414}
   - component: {fileID: 33428702835043428}
   - component: {fileID: 23217447733800120}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AngryEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +194,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1069861501427560}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -4.298}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -481,6 +483,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1815148731828630}
   m_Mesh: {fileID: 4300000, guid: dded06e815c89a447bdcc2fbca1f1f45, type: 3}
+--- !u!65 &65530845944561812
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069861501427560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.5, z: 1}
+  m_Center: {x: 0, y: 0.75, z: 0.15}
 --- !u!114 &114248574761946536
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -520,7 +534,21 @@ MonoBehaviour:
   playOnAwake: 1
   loop: 1
   pingPong: 0
-  interval: 0.1
+  interval: 0.3
+--- !u!114 &114895084893775456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069861501427560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 830b63202ad7b3747a0e6fab5f0a53c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  selectedColor: {r: 0, g: 1, b: 0, a: 0.2509804}
+  defaultColor: {r: 1, g: 0, b: 0, a: 0.2509804}
 --- !u!114 &114988867605070390
 MonoBehaviour:
   m_ObjectHideFlags: 1

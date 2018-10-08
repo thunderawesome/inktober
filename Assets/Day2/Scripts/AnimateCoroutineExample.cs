@@ -62,8 +62,6 @@ namespace Battlerock
             if (playOnAwake == true)
             {
                 Play();
-                m_coroutine = Animate();
-                StartCoroutine(m_coroutine);
             }
         }
 
@@ -167,28 +165,42 @@ namespace Battlerock
             }
         }
 
-        private void Play()
+        public void Play()
         {
             isPlaying = true;
-        }
-
-        private void Pause()
-        {
-            isPlaying = false;
-        }
-
-        private void Reset()
-        {
-            isPlaying = false;
-            currentFrame = 0;
-
-            // Loops through and disables all Frames and enables the first frame.
-            for (int i = 0; i < frames.Length; i++)
+            if (m_coroutine == null)
             {
-                frames[i].SetActive(false);
+                m_coroutine = Animate();
+                StartCoroutine(m_coroutine);
             }
+        }
 
-            frames[currentFrame].SetActive(true);
+        public void Pause()
+        {
+            isPlaying = false;
+            StopCoroutine(m_coroutine);
+            m_coroutine = null;
+        }
+
+        public void Reset()
+        {
+            isPlaying = false;
+            if (m_coroutine != null)
+            {
+                currentFrame = 0;
+
+                StopCoroutine(m_coroutine);
+
+                m_coroutine = null;
+
+                // Loops through and disables all Frames and enables the first frame.
+                for (int i = 0; i < frames.Length; i++)
+                {
+                    frames[i].SetActive(false);
+                }
+
+                frames[currentFrame].SetActive(true);
+            }
         }
 
         private void ClampToLastFrame()
