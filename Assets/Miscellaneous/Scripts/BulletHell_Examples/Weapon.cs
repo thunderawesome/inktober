@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour
     {
         if (isFiring == true)
         {
-            int numberOfHits = Physics.SphereCastNonAlloc(transform.position, sphereCastRadius, transform.forward, m_raycastHits, Mathf.Infinity, lookMask);
+            int numberOfHits = Physics.SphereCastNonAlloc(transform.parent.position, sphereCastRadius, transform.parent.forward, m_raycastHits, Mathf.Infinity, lookMask);
             if (numberOfHits > 0)
             {
                 target = m_raycastHits[0].collider.transform;                
