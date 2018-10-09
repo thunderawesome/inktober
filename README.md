@@ -37,3 +37,6 @@ Day 8: BulletHell basic mechanics. Building off previous examples and scripts. L
 
 ![Alt Text](https://media.giphy.com/media/c6VxjHYOjQaCgleWrV/giphy.gif)
 
+Day 9: Enemy AI and explosion particles.
+
+![Alt Text](https://media.giphy.com/media/d7p8vMkxtMIqJK5bHH/giphy.gif)
