@@ -2,7 +2,6 @@
 
 namespace Battlerock
 {
-    [RequireComponent(typeof(AudioSource))]
     public class Character : MonoBehaviour
     {
         public Stats stats;
@@ -14,6 +13,8 @@ namespace Battlerock
 
         public GameObject explosion;
 
+        public bool isDead = false;
+
         public virtual void TakeDamage(int amount)
         {
             if (this.stats.health >= 1)
@@ -22,14 +23,26 @@ namespace Battlerock
             }
             else
             {
-                Dead();
+                if (this.stats.health <= 0)
+                {
+                    this.stats.health = 0;
+                }
+
+                // Seems backwards. But, we don't want to repeatedly call this.
+                // isDead is set inside the Dead() method.
+                if (isDead == false)
+                {
+                    Dead();
+                }
             }
         }
 
         public virtual void Dead()
         {
+            isDead = true;
             Instantiate(explosion, this.transform.position, explosion.transform.rotation);
-            Destroy(this.gameObject, .1f);
+            //Destroy(this.gameObject, .1f);
+            this.gameObject.SetActive(false);
         }
     }
 

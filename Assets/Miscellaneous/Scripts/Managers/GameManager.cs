@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Battlerock
 {
     public class GameManager : Singleton<GameManager>
-    {      
+    {
         #region Private Variables
 
         private IEnumerator m_coroutine = null;

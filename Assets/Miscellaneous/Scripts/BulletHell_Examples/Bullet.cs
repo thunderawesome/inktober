@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Battlerock
 {
-
+    [RequireComponent(typeof(AudioSource))]
     public class Bullet : MonoBehaviour
     {
         public ParticleSystem part;
@@ -11,13 +11,24 @@ namespace Battlerock
 
         public int damage = 1;
 
-        void Start()
+        private AudioSource m_audioSource;
+
+        void Awake()
         {
+            m_audioSource = GetComponent<AudioSource>();
             part = GetComponent<ParticleSystem>();
             collisionEvents = new List<ParticleCollisionEvent>();
-            var collision = part.collision;
-            collision.enabled = true;
-            collision.bounce = .5f;
+            m_audioSource = GetComponent<AudioSource>();
+        }
+
+        private void OnEnable()
+        {
+            m_audioSource.enabled = true;
+        }
+
+        private void OnDisable()
+        {
+            m_audioSource.enabled = false;
         }
 
         void OnParticleCollision(GameObject other)

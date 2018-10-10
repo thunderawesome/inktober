@@ -54,5 +54,13 @@ namespace Battlerock
         {
             Move();
         }
+
+        public override void Dead()
+        {
+            base.Dead();
+            WavesController.Instance.GetCurrentSubWave.currentNumberOfDefeatedEnemies++;
+            WavesController.Instance.StartCoroutine(WavesController.Instance.MoveToNextSubWaveIfPossible());
+
+        }
     }
 }

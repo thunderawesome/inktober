@@ -52,6 +52,8 @@ namespace Battlerock
         public static WavesController Instance;
         public Waves[] waves;
 
+        public GameObject waveCompleteObject;
+
         #endregion
 
         #region Public Properties
@@ -169,11 +171,13 @@ namespace Battlerock
 
         private void Update()
         {
+#if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.Space) == true)
             {
                 GetCurrentSubWave.currentNumberOfDefeatedEnemies++;
                 StartCoroutine(MoveToNextSubWaveIfPossible());
             }
+#endif
         }
 
         private void InitializeWavesAndSubWaves()
@@ -332,7 +336,7 @@ namespace Battlerock
         {
             // If the current wave is incomplete, then we won't bother continuing
             if (IsCurrentWaveCompleted == false)
-            {
+            {                
                 yield break;
             }
 
@@ -372,9 +376,11 @@ namespace Battlerock
         {
             // If the current sub-wave is incomplete, then we won't bother continuing
             if (IsCurrentSubWaveCompleted == false)
-            {
+            {                
                 yield break;
             }
+
+            waveCompleteObject.SetActive(false);
 
             var currentSubWave = GetCurrentSubWave;
 
@@ -387,7 +393,7 @@ namespace Battlerock
                 currentSubWave.enemies[i].SetActive(false);
             }
 
-            // TODO: Play sound to notify player that the wave is over.
+            waveCompleteObject.SetActive(true);
 
             // If we do NOT exceed the number of sub-waves that belong to the current wave
             if (m_currentSubWaveIndex < GetCurrentWave.subWaves.Length - 1)
@@ -403,7 +409,6 @@ namespace Battlerock
                 }
                 else
                 {
-                    //TODO: Move to next wave
                     yield return MoveToNextWaveIfPossible();
                 }
             }

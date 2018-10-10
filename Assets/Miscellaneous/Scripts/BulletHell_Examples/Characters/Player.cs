@@ -100,7 +100,6 @@ namespace Battlerock
         {
             if (Input.GetButton(InputManager.ATTACK))
             {
-                this.GetComponent<AudioSource>().enabled = true;
                 m_weapon.FireProjectile();
             }
             else
@@ -111,8 +110,6 @@ namespace Battlerock
                 {
                     return;
                 }
-
-                this.GetComponent<AudioSource>().enabled = false;
 
                 m_weapon.isFiring = false;
 
