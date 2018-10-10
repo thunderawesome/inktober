@@ -41,6 +41,6 @@ Day 9: Enemy AI and explosion particles.
 
 ![Alt Text](https://media.giphy.com/media/d7p8vMkxtMIqJK5bHH/giphy.gif)
 
-Day 9: Enemy AI and explosion particles.
+Day 10: Typewriter text. Sound fx and Wave Complete text triggered on sub-wave completion
 
 ![Alt Text](https://media.giphy.com/media/cJbnvxz8FCA59MSc3O/giphy.gif)
