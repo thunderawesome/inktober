@@ -44,3 +44,7 @@ Day 9: Enemy AI and explosion particles.
 Day 10: Typewriter text. Sound fx and Wave Complete text triggered on sub-wave completion
 
 ![Alt Text](https://media.giphy.com/media/cJbnvxz8FCA59MSc3O/giphy.gif)
+
+Day 11: Respawning. Health/Lives. Game Over. All Waves Clear. Probably should have split to future days. Moving onto a new game type for the following days! 
+
+![Alt Text](https://media.giphy.com/media/etAFqFx6jhVip2QCuN/giphy.gif)
