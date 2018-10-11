@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: LiberationSans SDF - Drop Shadow
   m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
@@ -50,7 +50,7 @@ Material:
     - _ColorMask: 15
     - _Diffuse: 0.5
     - _DiffusePower: 1
-    - _FaceDilate: 0.1
+    - _FaceDilate: 0.315
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.05
@@ -64,12 +64,12 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.1
+    - _OutlineWidth: 0.284
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
     - _ScaleRatioB: 0.73125
-    - _ScaleRatioC: 0.64125
+    - _ScaleRatioC: 0.44775
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0

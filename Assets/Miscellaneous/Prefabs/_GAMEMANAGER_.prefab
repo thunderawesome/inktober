@@ -23,7 +23,7 @@ GameObject:
   m_Layer: 0
   m_Name: _GAMEMANAGER_
   m_TagString: GameController
-  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -51,3 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c668ce9925e4bfe4a8517bb25f7dcf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioController: {fileID: 0}
+  spawnPointController: {fileID: 0}
+  teleportPoint: {fileID: 0}
+  currentLevel: 0
+  previousLevel: 0
+  m_player: {fileID: 0}
+  lostLifeTextObject: {fileID: 0}
+  gameOverTextObject: {fileID: 0}

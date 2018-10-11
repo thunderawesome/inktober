@@ -40,6 +40,11 @@ namespace Battlerock
         public virtual void Dead()
         {
             isDead = true;
+
+            if (stats.lives > 0)
+            {
+                stats.lives--;
+            }
             Instantiate(explosion, this.transform.position, explosion.transform.rotation);
             //Destroy(this.gameObject, .1f);
             this.gameObject.SetActive(false);
@@ -55,6 +60,7 @@ namespace Battlerock
         public int maxHealth;
         public int health;
         public int lives;
+        public int maxLives;
         public int special;
     }
 }

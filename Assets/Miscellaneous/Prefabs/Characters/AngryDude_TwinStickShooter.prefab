@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 114614067397365102}
   - component: {fileID: 198297111147330274}
   - component: {fileID: 199790260800384708}
+  - component: {fileID: 82444298574450656}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -194,7 +195,7 @@ GameObject:
   m_Layer: 0
   m_Name: AngryDude_TwinStickShooter
   m_TagString: Player
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -208,7 +209,6 @@ GameObject:
   - component: {fileID: 4657007096743572}
   - component: {fileID: 65561082182054644}
   - component: {fileID: 54050765840947012}
-  - component: {fileID: 82300188897475194}
   - component: {fileID: 114286113628283070}
   - component: {fileID: 114980485238021982}
   m_Layer: 0
@@ -925,12 +925,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.9, z: 0.75}
   m_Center: {x: 0, y: 0.45, z: 0}
---- !u!82 &82300188897475194
+--- !u!82 &82444298574450656
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1686781689981774}
+  m_GameObject: {fileID: 1435563427185486}
   m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -1058,13 +1058,16 @@ MonoBehaviour:
     maxHealth: 100
     health: 100
     lives: 3
+    maxLives: 3
     special: 0
   anim: {fileID: 114821291065935376}
   sfx: {fileID: 8300000, guid: 648d32d331b49be4298c86dd3debfba7, type: 3}
   explosion: {fileID: 1000010340983562, guid: 112bbea4c16808444b07dfcb73e4f2cc, type: 2}
+  isDead: 0
   PlayerNumber: 0
   healthbarSlider: {fileID: 114000013180937700, guid: 037ff5edc0bb6ee47958d3cdfee8e165,
     type: 2}
+  livesText: {fileID: 0}
   playerPrefab: {fileID: 1635506379463456}
 --- !u!114 &114315811965563504
 MonoBehaviour:
@@ -1083,7 +1086,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1435563427185486}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 949c3502368e4cb40b3299c515d953e2, type: 3}
   m_Name: 

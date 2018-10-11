@@ -77,6 +77,7 @@ public class Typewriter : MonoBehaviour
             {
                 // Sets the word to print to whatever is in the text component
                 m_wordToPrint = m_textType.text;
+                m_textType.text = "";
             }
             //returns each letter in the string as an array of characters
             return m_letters = m_wordToPrint.ToCharArray();
@@ -123,9 +124,12 @@ public class Typewriter : MonoBehaviour
             i++;
         }
 
-        yield return new WaitForSeconds(timeToLive);
+        if (timeToLive >= 0)
+        {
+            yield return new WaitForSeconds(timeToLive);
 
-        this.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
+        }
     }
 
     #endregion

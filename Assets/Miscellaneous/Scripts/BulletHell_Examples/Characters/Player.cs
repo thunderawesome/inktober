@@ -14,6 +14,8 @@ namespace Battlerock
         public Slider healthbarSlider;
         private GameObject m_healthbar;
 
+        public TMPro.TextMeshProUGUI livesText;
+
         private Weapon m_weapon;
 
         public GameObject playerPrefab;
@@ -52,6 +54,10 @@ namespace Battlerock
             m_healthbar.SetActive(true);
             m_healthbar.GetComponent<Slider>().maxValue = this.stats.maxHealth;
             m_healthbar.GetComponent<Slider>().minValue = 0;
+
+            livesText = m_healthbar.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+
+            livesText.text = stats.lives.ToString();
         }
 
         public void HealthBar()
@@ -62,11 +68,28 @@ namespace Battlerock
             }
         }
 
+        public override void Dead()
+        {
+            base.Dead();
+
+            GameManager.Instance.GameOver(stats.lives <= 0);
+
+            livesText.text = stats.lives.ToString();
+        }
+
         protected internal virtual void OnEnable()
         {
             // See PlayerActions.cs for this setup.
-
+            GameManager.Instance.Player = this.transform;
             stats.health = stats.maxHealth;
+            GameManager.Instance.IsGameOver = false;
+            isDead = false;
+
+            if (stats.lives <= 0)
+            {
+                stats.lives = stats.maxLives;
+                livesText.text = stats.lives.ToString();
+            }
 
             if (_PlayerManager.Instance != null)
             {

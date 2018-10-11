@@ -54,6 +54,8 @@ namespace Battlerock
 
         public GameObject waveCompleteObject;
 
+        public GameObject allWavesClearObject;
+
         #endregion
 
         #region Public Properties
@@ -433,6 +435,7 @@ namespace Battlerock
                 }
             }
 
+            allWavesClearObject.SetActive(true);
             // TODO: Add winning condition
             Debug.Log("ALL WAVES CLEARED!");
         }
