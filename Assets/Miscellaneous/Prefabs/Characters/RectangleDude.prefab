@@ -542,10 +542,12 @@ MonoBehaviour:
     maxHealth: 10
     health: 10
     lives: 1
+    maxLives: 0
     special: 0
   anim: {fileID: 114771654922952104}
   sfx: {fileID: 8300000, guid: d7f287cd8e52b474ba743a2307dc4951, type: 3}
   explosion: {fileID: 1000010340983562, guid: 112bbea4c16808444b07dfcb73e4f2cc, type: 2}
+  isDead: 0
   target: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   damageWhenBumpedInto: 5

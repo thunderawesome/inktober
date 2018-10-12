@@ -119,7 +119,7 @@ public class SpawnPointController : MonoBehaviour
     /// <returns></returns>
     public IEnumerator TeleportWhenReady(bool canMoveToNextWave = true)
     {
-        while (GameManager.Instance.spawnPointController == null)
+        while (GameManager.Instance.spawnPointController == null || PlayerManager.Instance.players.Count == 0)
         {
             yield return null;
         }
@@ -152,8 +152,12 @@ public class SpawnPointController : MonoBehaviour
                     Debug.Log("teleport trigger stuff happening");
 
                     Debug.Log("CurrentSpawnPoint: " + m_currentSpawnPoint.name);
-                    GameManager.Instance.Player.transform.position = m_currentSpawnPoint.position;
-                    GameManager.Instance.Player.transform.rotation = m_currentSpawnPoint.rotation;
+
+                    for (int i = 0; i < PlayerManager.Instance.players.Count; i++)
+                    {
+                        PlayerManager.Instance.players[i].transform.position = m_currentSpawnPoint.position;
+                        PlayerManager.Instance.players[i].transform.rotation = m_currentSpawnPoint.rotation;
+                    }
 
                     GameManager.Instance.IsGameOver = false;
 
@@ -174,7 +178,10 @@ public class SpawnPointController : MonoBehaviour
             {
                 if(m_playerSpawnPointContainer.childCount == 0)
                 {
-                    m_playerSpawnPoints.Enqueue(GameManager.Instance.Player);
+                    for (int i = 0; i < PlayerManager.Instance.players.Count; i++)
+                    {
+                        m_playerSpawnPoints.Enqueue(PlayerManager.Instance.players[i]);
+                    }                   
                 }
                 else
                 {
@@ -208,9 +215,13 @@ public class SpawnPointController : MonoBehaviour
                 }
                 m_currentSpawnPoint = m_playerSpawnPoints.Dequeue();
                 Debug.Log("CurrentSpawnPoint: " + m_currentSpawnPoint.name);
-                
-                GameManager.Instance.Player.transform.position = m_currentSpawnPoint.position;
-                GameManager.Instance.Player.transform.rotation = m_currentSpawnPoint.rotation;
+
+                for (int i = 0; i < PlayerManager.Instance.players.Count; i++)
+                {
+                    PlayerManager.Instance.players[i].transform.position = m_currentSpawnPoint.position;
+                    PlayerManager.Instance.players[i].transform.rotation = m_currentSpawnPoint.rotation;
+                }
+               
             });
     }
     #endregion

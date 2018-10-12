@@ -14,6 +14,8 @@ namespace Battlerock
 
         public GameObject spawnPointController;
 
+        public GameObject playerManager;
+
         /// <summary>
         /// A teleport point that the player spawns to whenever the inventory is active or a game over happens.
         /// </summary>
@@ -35,38 +37,14 @@ namespace Battlerock
 
             set
             {
-                var player = Player.GetComponentInChildren<Player>(true);
-
-                if (value == true) // true
-                {
-                    player.stats.health = 0;
-                }
-                else // false
-                {
-                    player.stats.health = player.stats.maxHealth;
-                }
-
                 m_isGameOver = value;
             }
         }
 
-        public Transform Player
-        {
-            get
-            {
-                return m_player;
-            }
-            set { m_player = value; }
-        }
         #endregion
 
         #region Private Variables
 
-        /// <summary>
-        /// The camera rig of the player. In other words, the player in room scale.
-        /// </summary>
-        [SerializeField]
-        private Transform m_player;
 
         private IEnumerator m_coroutine = null;
 
@@ -92,14 +70,20 @@ namespace Battlerock
         // Unity's built-in update loop method
         private void Update()
         {
-            if (WavesController.Instance.allWavesClearObject.activeSelf == true)
+            if (WavesController.Instance != null)
             {
-                if (Input.GetKeyDown(KeyCode.R) == true)
+                if (WavesController.Instance.allWavesClearObject != null)
                 {
-                    WavesController.Instance.allWavesClearObject.SetActive(false);
-                    Player.gameObject.SetActive(true);
-                    SpawnPointController.Instance.InitializeSpawnPoints();
-                    SpawnPointController.Instance.StartCoroutine(SpawnPointController.Instance.TeleportWhenReady());
+                    if (WavesController.Instance.allWavesClearObject.activeSelf == true)
+                    {
+                        if (Input.GetKeyDown(KeyCode.R) == true)
+                        {
+                            WavesController.Instance.allWavesClearObject.SetActive(false);
+                            PlayerManager.Instance.EnableOrDisableAllPlayers(true);
+                            SpawnPointController.Instance.InitializeSpawnPoints();
+                            SpawnPointController.Instance.StartCoroutine(SpawnPointController.Instance.TeleportWhenReady());
+                        }
+                    }
                 }
             }
 
@@ -109,7 +93,7 @@ namespace Battlerock
                 {
                     lostLifeTextObject.SetActive(false);
                     gameOverTextObject.SetActive(false);
-                    Player.gameObject.SetActive(true);
+                    PlayerManager.Instance.EnableOrDisableAllPlayers(true);
                     SpawnPointController.Instance.StartCoroutine(SpawnPointController.Instance.TeleportWhenReady());
                 }
             }
@@ -131,7 +115,7 @@ namespace Battlerock
                 spawnPointController = new GameObject();
                 spawnPointController.name = "_SpawnController_";
                 SpawnPointController.Instance = spawnPointController.AddComponent<SpawnPointController>();
-                spawnPointController.transform.parent = this.transform;
+                spawnPointController.transform.parent = transform;
                 spawnPointController.tag = "Spawner";
             }
             else
@@ -139,7 +123,22 @@ namespace Battlerock
                 spawnPointController = GameObject.FindWithTag("Spawner");
                 spawnPointController.transform.parent = transform;
             }
+
+            if (PlayerManager.Instance == null)
+            {
+                playerManager = new GameObject();
+                playerManager.name = "_PlayerManager_";
+                PlayerManager.Instance = playerManager.AddComponent<PlayerManager>();
+                playerManager.transform.parent = transform;
+                playerManager.tag = "PlayerManager";
+            }
+            else
+            {
+                playerManager = GameObject.FindWithTag("PlayerManager");
+                playerManager.transform.parent = transform;
+            }
         }
+
 
         /// <summary>
         /// Toggle between pausing and resuming the game.
@@ -178,7 +177,8 @@ namespace Battlerock
             {
                 if (gameOverTextObject == null)
                 {
-                    Debug.LogErrorFormat("No game over text object assigned. Please assign in the inspector of the {0} class.", name);
+                    Debug.LogWarningFormat("No game over text object assigned. Please assign in the inspector of the {0} class.", name);
+                    return;
                 }
                 else
                 {
@@ -189,7 +189,8 @@ namespace Battlerock
             {
                 if (lostLifeTextObject == null)
                 {
-                    Debug.LogErrorFormat("No life lost text object assigned. Please assign in the inspector of the {0} class.", name);
+                    Debug.LogWarningFormat("No life lost text object assigned. Please assign in the inspector of the {0} class.", name);
+                    return;
                 }
                 else
                 {

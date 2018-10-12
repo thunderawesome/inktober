@@ -7,7 +7,7 @@ namespace Battlerock
     [RequireComponent(typeof(BoxCollider))]
     public class Player : Character
     {
-        public _PlayerManager.PlayerNumber PlayerNumber = _PlayerManager.PlayerNumber.One;
+        public PlayerManager.PlayerNumber PlayerNumber = PlayerManager.PlayerNumber.One;
 
         private string saveData;
 
@@ -22,6 +22,7 @@ namespace Battlerock
 
         void Start()
         {
+            PlayerManager.Instance.players.Add(transform);
             _rigidbody = GetComponent<Rigidbody>();
             InitHealthBar();
         }
@@ -46,7 +47,9 @@ namespace Battlerock
                     canvas.AddComponent<GraphicRaycaster>();
                 }
 
+                var healthTransform = healthbarSlider.transform;
                 m_healthbar = Instantiate(healthbarSlider.gameObject);
+                m_healthbar.transform.position = new Vector3(healthTransform.position.x * ((int)PlayerNumber+1), healthTransform.position.y, healthTransform.position.z);
                 m_healthbar.name = "PlayerHealth";
 
                 m_healthbar.transform.SetParent(canvas.transform, false);
@@ -79,8 +82,7 @@ namespace Battlerock
 
         protected internal virtual void OnEnable()
         {
-            // See PlayerActions.cs for this setup.
-            GameManager.Instance.Player = this.transform;
+            
             stats.health = stats.maxHealth;
             GameManager.Instance.IsGameOver = false;
             isDead = false;
@@ -89,12 +91,6 @@ namespace Battlerock
             {
                 stats.lives = stats.maxLives;
                 livesText.text = stats.lives.ToString();
-            }
-
-            if (_PlayerManager.Instance != null)
-            {
-                _PlayerManager.Instance.cam.Follow = transform;
-                _PlayerManager.Instance.cam.LookAt = transform;
             }
 
             m_weapon = GetComponentInChildren<Weapon>();
@@ -111,17 +107,12 @@ namespace Battlerock
                 {
                     m_healthbar.SetActive(false);
                 }
-
-                if (_PlayerManager.Instance)
-                {
-                    _PlayerManager.Instance.RevivePlayer(playerPrefab, _PlayerManager.Instance.spawnPoint.position, PlayerNumber);
-                }
             }
         }
 
         private void Attack()
         {
-            if (Input.GetButton(InputManager.ATTACK))
+            if (Input.GetButton(InputManager.ATTACK + "_" + PlayerNumber.ToString()) || Input.GetAxis(InputManager.ATTACK + "_" + PlayerNumber.ToString()) > 0)
             {
                 m_weapon.FireProjectile();
             }
@@ -144,7 +135,7 @@ namespace Battlerock
         {
             Vector3 velocity = _rigidbody.velocity;
 
-            if (Input.GetAxis(InputManager.VERTICAL_MOVEMENT) == 0 && Input.GetAxis(InputManager.HORIZONTAL_MOVEMENT) == 0)
+            if (Input.GetAxis(InputManager.VERTICAL_MOVEMENT + "_" + PlayerNumber.ToString()) == 0 && Input.GetAxis(InputManager.HORIZONTAL_MOVEMENT + "_" + PlayerNumber.ToString()) == 0)
             {
                 velocity = Vector3.zero;
                 anim.Reset();
@@ -152,10 +143,10 @@ namespace Battlerock
             }
             else
             {
-                anim.Play();
+                anim.Play();                
             }
 
-            velocity = new Vector3((Input.GetAxis(InputManager.HORIZONTAL_MOVEMENT) * stats.speed * Time.deltaTime), velocity.y, (Input.GetAxis(InputManager.VERTICAL_MOVEMENT) * stats.speed * Time.deltaTime));
+            velocity = new Vector3((Input.GetAxis(InputManager.HORIZONTAL_MOVEMENT + "_" + PlayerNumber.ToString()) * stats.speed * Time.deltaTime), velocity.y, (Input.GetAxis(InputManager.VERTICAL_MOVEMENT + "_" + PlayerNumber.ToString()) * stats.speed * Time.deltaTime));
             _rigidbody.velocity = velocity;
         }
 

@@ -382,7 +382,10 @@ namespace Battlerock
                 yield break;
             }
 
-            waveCompleteObject.SetActive(false);
+            if (waveCompleteObject != null)
+            {
+                waveCompleteObject.SetActive(false);
+            }
 
             var currentSubWave = GetCurrentSubWave;
 
@@ -395,7 +398,10 @@ namespace Battlerock
                 currentSubWave.enemies[i].SetActive(false);
             }
 
-            waveCompleteObject.SetActive(true);
+            if (waveCompleteObject != null)
+            {
+                waveCompleteObject.SetActive(true);
+            }
 
             // If we do NOT exceed the number of sub-waves that belong to the current wave
             if (m_currentSubWaveIndex < GetCurrentWave.subWaves.Length - 1)
