@@ -57,6 +57,7 @@ namespace Battlerock
         public float speed;
         public float rotateSpeed;
         public float jumpForce;
+        public float doubleJumpForceModifier;
         public int maxHealth;
         public int health;
         public int lives;

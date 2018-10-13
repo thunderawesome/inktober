@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 4339140428464142}
   - component: {fileID: 114821291065935376}
   m_Layer: 0
-  m_Name: AngryDude_TwinStickShooter
+  m_Name: Animations
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 114286113628283070}
   - component: {fileID: 114980485238021982}
   m_Layer: 0
-  m_Name: AngryDude_TwinStickShooter
+  m_Name: Player_TwinStickShooter
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,7 +387,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1686781689981774}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1146,6 +1146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 999
   flipRotation: 1
+  useMouse: 1
 --- !u!198 &198297111147330274
 ParticleSystem:
   m_ObjectHideFlags: 1

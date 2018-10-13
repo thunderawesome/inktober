@@ -11,6 +11,8 @@
         public const string RSTICK_HORIZONTAL = "RStick_Horizontal";
         public const string RSTICK_VERTICAL = "RStick_Vertical";
 
+        public const string JUMP = "Jump";
+
         #endregion
 
         private void Awake()

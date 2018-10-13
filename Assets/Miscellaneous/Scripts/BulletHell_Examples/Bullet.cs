@@ -23,6 +23,7 @@ namespace Battlerock
 
         private void OnEnable()
         {
+            part.SetEmissionRate(0);
             m_audioSource.enabled = true;
         }
 
