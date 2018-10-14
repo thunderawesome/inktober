@@ -57,3 +57,7 @@ Day 13: Simple platformer with double jump ability.
 
 ![Alt Text](https://media.giphy.com/media/dn0DxytoBO6QymrHdL/giphy.gif)
 
+Day 14: Simple waypoint AI and co-op platforming.
+
+![Alt Text](https://media.giphy.com/media/Mn31eGxAZl3JPFOwPo/giphy.gif)
+
