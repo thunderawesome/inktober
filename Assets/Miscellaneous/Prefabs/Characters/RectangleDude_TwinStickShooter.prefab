@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 135440295176834998}
   - component: {fileID: 54018466516236920}
   m_Layer: 9
-  m_Name: RectangleDude
+  m_Name: RectangleDude_TwinStickShooter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -539,6 +539,7 @@ MonoBehaviour:
     speed: 100
     rotateSpeed: 999
     jumpForce: 10
+    doubleJumpForceModifier: 0
     maxHealth: 10
     health: 10
     lives: 1

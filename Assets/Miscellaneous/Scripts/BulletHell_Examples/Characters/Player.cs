@@ -269,7 +269,6 @@ namespace Battlerock
             Flip(m_velocity.x);
         }
 
-
         /// <summary>
         /// Determines which facing direction the character should be facing.
         /// </summary>

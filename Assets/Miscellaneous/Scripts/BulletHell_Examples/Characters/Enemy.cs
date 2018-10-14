@@ -20,11 +20,25 @@ namespace Battlerock
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        protected void OnTriggerStay(Collider other)
+        private void OnTriggerEnter(Collider other)
         {
+            if(other.tag == "Waypoint")
+            {
+                target = other.GetComponent<Waypoint>().nextWaypoint;
+                Flip();
+            }
+
             if (other.tag == "Player")
             {
                 target = other.transform;
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if(other.tag == "Player")
+            {
+                target = null;
             }
         }
 
@@ -48,6 +62,16 @@ namespace Battlerock
                 velocity = transform.forward * stats.speed * Time.deltaTime;
                 _rigidbody.velocity = velocity;
             }
+        }
+
+        /// <summary>
+        /// Determines which facing direction the character should be facing.
+        /// </summary>
+        private void Flip()
+        {
+            var localScale = transform.localScale;
+            localScale.x *= -1;
+            transform.localScale = localScale;
         }
 
         protected void FixedUpdate()
