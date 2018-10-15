@@ -61,3 +61,6 @@ Day 14: Simple waypoint AI and co-op platforming.
 
 ![Alt Text](https://media.giphy.com/media/Mn31eGxAZl3JPFOwPo/giphy.gif)
 
+Day 15: Head stomps. Also, fixed some issues in the bullet-hell example(s).
+
+![Alt Text](https://media.giphy.com/media/pOYclbjUzhqfCAp8Ir/giphy.gif)
