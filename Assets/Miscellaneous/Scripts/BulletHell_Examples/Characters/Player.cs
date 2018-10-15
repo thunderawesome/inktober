@@ -25,6 +25,11 @@ namespace Battlerock
         public LayerMask floorLayers;
 
         /// <summary>
+        /// Enemies/Items that can be stomped on.
+        /// </summary>
+        public LayerMask stompLayers;
+
+        /// <summary>
         /// Timer for managing how high the character will jump depending on how long the jump button is held (Capped by a MAX held down value)
         /// </summary>
         public float m_shortHopTimer = 0;
@@ -32,6 +37,10 @@ namespace Battlerock
         #endregion
 
         #region Private Variables
+
+        private Ray m_ray;
+
+        private RaycastHit[] m_results = new RaycastHit[1];
 
         /// <summary>
         /// Collider component attached to gameobject.
@@ -77,10 +86,26 @@ namespace Battlerock
         /// </summary>
         private Vector3 m_gizmoEndPos;
 
+        private float m_gizmoDistance = 0.0f;
+
         /// <summary>
         /// Gizmos use this to check for the bottom-most part of the character's collider and where to draw ground check gizmos.
         /// </summary>
         private const float GROUND_CHECK_OFFSET = 0.45f;
+
+        private const float BOUNCE = 4.0f;
+
+        /// <summary>
+        /// Depending on the game type, we may not want to flip the character based on input.
+        /// </summary>
+        [SerializeField]
+        private bool m_canFlip = false;
+
+        /// <summary>
+        /// Determines if the player can KO an enemy by stomping on their head or not.
+        /// </summary>
+        [SerializeField]
+        private bool m_canStompOnEnemyHead = false;
 
         #endregion
 
@@ -143,6 +168,8 @@ namespace Battlerock
             m_groundCheckEndObj = new GameObject("GroundCheck_END");
             m_groundCheckEndObj.transform.position = m_gizmoEndPos;
             m_groundCheckEndObj.transform.parent = transform;
+
+            m_gizmoDistance = Vector3.Distance(m_gizmoStartPos, m_gizmoEndPos);
         }
 
         private void InitHealthBar()
@@ -266,7 +293,10 @@ namespace Battlerock
             m_velocity = new Vector3(Input.GetAxis(InputManager.HORIZONTAL_MOVEMENT + "_" + PlayerNumber.ToString()) * stats.speed * Time.deltaTime, m_velocity.y, Input.GetAxis(InputManager.VERTICAL_MOVEMENT + "_" + PlayerNumber.ToString()) * stats.speed * Time.deltaTime);
             _rigidbody.velocity = m_velocity;
 
-            Flip(m_velocity.x);
+            if (m_canFlip == true)
+            {
+                Flip(m_velocity.x);
+            }
         }
 
         /// <summary>
@@ -342,11 +372,30 @@ namespace Battlerock
         {
             m_isOnGround = false;
 
-            if (Physics.Linecast(m_groundCheckStartObj.transform.position, m_groundCheckEndObj.transform.position, floorLayers.value))
+            var hit = Physics.RaycastNonAlloc(m_groundCheckStartObj.transform.position, Vector3.down, m_results, Mathf.Infinity, floorLayers.value, QueryTriggerInteraction.Ignore);
+            if (hit > 0)
             {
+                Debug.LogFormat("Hit: {0}", m_results[0].collider.gameObject.name);
                 m_canDoubleJump = false;
                 m_isOnGround = true;
             }
+
+            hit = Physics.RaycastNonAlloc(m_groundCheckStartObj.transform.position, Vector3.down, m_results, m_gizmoDistance, stompLayers.value, QueryTriggerInteraction.Ignore);
+            if (hit > 0)
+            {
+                Debug.LogFormat("Hit: {0}", m_results[0].collider.gameObject.name);
+                if (m_canStompOnEnemyHead == true)
+                {
+                    var enemy = m_results[0].collider.gameObject;
+                    if (enemy.tag == "Enemy")
+                    {
+                        _rigidbody.AddForce(Vector3.up * stats.doubleJumpForceModifier * BOUNCE, ForceMode.Impulse);
+                        enemy.GetComponent<Enemy>().TakeDamage(100);
+                        return false;
+                    }
+                }
+            }
+
             return m_isOnGround;
         }
         #endregion

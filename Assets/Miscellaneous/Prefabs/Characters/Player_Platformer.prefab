@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4038601806467250}
   - component: {fileID: 33595509423015242}
   - component: {fileID: 23933956030085792}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AngryEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 33040410247317352}
   - component: {fileID: 23063802015356730}
   - component: {fileID: 114018065632636520}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AngryDude_RStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4626883039442494}
   - component: {fileID: 33400164064852830}
   - component: {fileID: 23668997507145870}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AngryEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4942301922002198}
   - component: {fileID: 114309207109603120}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Animations
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 33725012035546946}
   - component: {fileID: 23342501691891482}
   - component: {fileID: 114172969516142354}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AngryDude_LStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 4923487091033166}
   - component: {fileID: 33474727059947510}
   - component: {fileID: 23107943680816090}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AngryEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 65769187623877688}
   - component: {fileID: 54086020908055976}
   - component: {fileID: 114774050276738400}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player_Platformer
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 4526042129659330}
   - component: {fileID: 33223138725936264}
   - component: {fileID: 23816939056195386}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AngryEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 4607563121974600}
   - component: {fileID: 33834689661448222}
   - component: {fileID: 23518313532142540}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AngryEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 4951537432515526}
   - component: {fileID: 33003040334041488}
   - component: {fileID: 23877042825370338}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AngryEye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 33217814497117648}
   - component: {fileID: 23727903441170384}
   - component: {fileID: 114936162877306000}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AngryDude_Idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,8 +832,13 @@ MonoBehaviour:
   floorLayers:
     serializedVersion: 2
     m_Bits: 1025
+  stompLayers:
+    serializedVersion: 2
+    m_Bits: 512
   m_shortHopTimer: 0
   m_isOnGround: 1
+  m_canFlip: 1
+  m_canStompOnEnemyHead: 1
 --- !u!114 &114936162877306000
 MonoBehaviour:
   m_ObjectHideFlags: 1
