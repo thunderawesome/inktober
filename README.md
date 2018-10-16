@@ -64,3 +64,7 @@ Day 14: Simple waypoint AI and co-op platforming.
 Day 15: Head stomps. Also, fixed some issues in the bullet-hell example(s).
 
 ![Alt Text](https://media.giphy.com/media/pOYclbjUzhqfCAp8Ir/giphy.gif)
+
+Day 16: Screen Shake added to Day 16 scene for bullet-hell game.
+
+![Alt Text](https://media.giphy.com/media/69pg88CK2xr7o4aCXn/giphy.gif)
