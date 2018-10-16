@@ -41,6 +41,11 @@ namespace Battlerock
         {
             isDead = true;
 
+            if (CameraShake.Instance != null)
+            {
+                CameraShake.Instance.Shake();
+            }
+
             if (stats.lives > 0)
             {
                 stats.lives--;

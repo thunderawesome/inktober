@@ -346,6 +346,11 @@ namespace Battlerock
             GetCurrentWave.isWaveCompleted = true;
             Debug.Log("Current Wave " + m_currentWaveIndex + ": COMPLETE!");
 
+            if (waveCompleteObject != null && AreAllWavesCompleted == false)
+            {
+                waveCompleteObject.SetActive(true);
+            }
+
             // Reset the sub-wave index when a new Wave starts
             m_currentSubWaveIndex = 0;
 
@@ -398,10 +403,7 @@ namespace Battlerock
                 currentSubWave.enemies[i].SetActive(false);
             }
 
-            if (waveCompleteObject != null)
-            {
-                waveCompleteObject.SetActive(true);
-            }
+           
 
             // If we do NOT exceed the number of sub-waves that belong to the current wave
             if (m_currentSubWaveIndex < GetCurrentWave.subWaves.Length - 1)

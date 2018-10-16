@@ -2180,7 +2180,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: -0.38268343, y: -2.674554e-11, z: -0.000000021617735, w: -0.9238796}
+  m_LocalRotation: {x: -0.3826834, y: 0.000000035290842, z: -0.00000003624675, w: -0.9238796}
   m_LocalPosition: {x: 4.005, y: 9.725943, z: -9.725943}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3489,6 +3489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1438847535}
   - component: {fileID: 1438847534}
+  - component: {fileID: 1438847536}
   m_Layer: 0
   m_Name: CM vcam2
   m_TagString: Untagged
@@ -3538,7 +3539,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1438847533}
-  m_LocalRotation: {x: -0.38268343, y: -2.674554e-11, z: -0.000000021617735, w: -0.9238796}
+  m_LocalRotation: {x: -0.3826834, y: 0.000000035290842, z: -0.00000003624675, w: -0.9238796}
   m_LocalPosition: {x: 4.005, y: 8, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3546,6 +3547,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1438847536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1438847533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47cc6784bc537c847b09db8121af8ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1618662157
 Prefab:
   m_ObjectHideFlags: 0
