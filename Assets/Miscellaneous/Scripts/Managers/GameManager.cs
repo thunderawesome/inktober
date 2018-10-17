@@ -3,6 +3,12 @@ using UnityEngine;
 
 namespace Battlerock
 {
+    public enum GameMode
+    {
+        BulletHell,
+        Platformer
+    }
+
     public class GameManager : Singleton<GameManager>
     {
         #region Public Variables
