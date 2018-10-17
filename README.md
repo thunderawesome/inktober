@@ -68,3 +68,7 @@ Day 15: Head stomps. Also, fixed some issues in the bullet-hell example(s).
 Day 16: Screen Shake added to Day 16 scene for bullet-hell game.
 
 ![Alt Text](https://media.giphy.com/media/69pg88CK2xr7o4aCXn/giphy.gif)
+
+Day 17: ScriptableAsset example
+
+![Alt Text](https://media.giphy.com/media/eB1nmcacMuoJur0HSr/giphy.gif)
