@@ -72,3 +72,9 @@ Day 16: Screen Shake added to Day 16 scene for bullet-hell game.
 Day 17: ScriptableAsset example
 
 ![Alt Text](https://media.giphy.com/media/eB1nmcacMuoJur0HSr/giphy.gif)
+
+
+Day 17: Kuwahara Shader example
+
+![Alt Text](https://media.giphy.com/media/30pxHEY75ACs75vjCB/giphy.gif)
+
