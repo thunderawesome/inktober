@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30bc0f3d0d627145a2c43d0c5189ccd, type: 3}
   m_Name: Battlerock.CustomScriptableObject
   m_EditorClassIdentifier: 
-  objectName: New MyScriptableObject
-  gameMode: 0
-  numberOfPlayers: 1
+  objectName: Game
+  gameMode: 1
+  numberOfPlayers: 2
